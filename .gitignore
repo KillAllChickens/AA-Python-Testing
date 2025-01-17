@@ -1,0 +1,17 @@
+# config stuff(Dont want to leak tokens)
+*.bak
+
+# pycache files
+**__pycache__/
+
+test-*
+
+
+# pyinstaller Stuff
+build/
+dist/
+*.spec
+*.exe
+
+# Enviroment Stuff
+.venv/

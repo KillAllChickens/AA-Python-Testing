@@ -1,0 +1,51 @@
+{
+  "username": "Epicman21221",
+  "command_prefix": "?",
+  "command_config": {
+      "categories": {
+          "Testing": {
+              "enabled": true
+          },
+          "Fun": {
+              "enabled": true
+          },
+          "Pomodoro": {
+              "enabled": true
+          }
+      },
+      "commands": {
+          "test": {
+              "enabled": false,
+              "categories": [
+                  "Testing",
+                  "Fun"
+              ]
+          },
+          "motivate": {
+              "enabled": null,
+              "categories": [
+                  "Fun"
+              ]
+          },
+          "pat": {
+              "enabled": null,
+              "categories": [
+                  "Fun",
+                  "Pomodoro"
+              ]
+          },
+          "get_code": {
+              "enabled": null,
+              "categories": [
+                  "Pomodoro"
+              ]
+          }
+      }
+  },
+  "auth": {
+      "client_id": "<REDACTED>",
+      "client_secret": "<REDACTED>",
+      "access_token": "<REDACTED>",
+      "refresh_token": "<REDACTED>"
+  }
+}

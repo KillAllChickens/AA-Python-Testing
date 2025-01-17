@@ -1,0 +1,25 @@
+{
+  "categories": {
+    "Testing": { "enabled": false },
+    "Fun": { "enabled": true },
+    "Pomodoro": { "enabled": true }
+  },
+  "commands": {
+    "test": {
+      "enabled": null,
+      "categories": ["Testing", "Fun"]
+    },
+    "motivate": {
+      "enabled": null,
+      "categories": ["Fun"]
+    },
+    "pat": {
+      "enabled": null,
+      "categories": ["Fun", "Pomodoro"]
+    },
+    "get_code": {
+      "enabled": null,
+      "categories": ["Pomodoro"]
+    }
+  }
+}
