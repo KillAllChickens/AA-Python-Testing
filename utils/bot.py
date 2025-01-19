@@ -74,15 +74,16 @@ class Bot(commands.Bot):
     
     async def start_bot(self):
         try:
+            print(f"{self.token} | '{self._prefix}'")
             await self.start()
         except AuthenticationError:
             await failed_auth(self.config.config)
-            # self.config = glob_conf
-            # print(self.config.auth)
-            # self.access_token = self.config.access_token
+            self.config.reload_config()
+            self.token = self.config.access_token
+            self._prefix = self.config.command_prefix
+            super().__init__(token=self.token, prefix=self._prefix, initial_channels=[])
+            await load_cogs(self)
 
-            # # super().__init__(token=self.access_token, prefix="", initial_channels=[])
-            # print(self.commands)
             await self.start()
             # print(f"Error starting the bot: {e}")
 

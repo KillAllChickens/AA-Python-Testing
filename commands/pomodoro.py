@@ -14,7 +14,6 @@ class Pomodoro(commands.Cog):
     async def send_code(self, ctx: commands.Context):
         # if not self.websocket_client:
         #     self.websocket_client = WebSocketServer()
-        # print(self.websocket_client.client)
         if self.websocket_client.client:
             # print(self.websocket_client)
             
@@ -36,12 +35,13 @@ class Pomodoro(commands.Cog):
             await ctx.reply("Only 3 pats per message! Patting thrice.")
             count = 3
         
-        print(f"{ctx.author.name} patted Teemo {count} times!")
+        print(f"{ctx.author.name} patted Teemo {count} times! ws client class: {self.websocket_client}")
+        # self.websocket_client = WebSocketServer()
         if self.websocket_client.client:
             # print(self.websocket_client.client)
             await self.websocket_client.send_message_with_username("pat_teemo", ctx.author.display_name, str(count))
         else:
-            await ctx.reply("No WebSocket client connected")
+            await ctx.reply(f"No WebSocket client connected: {self.websocket_client.client}")
     
     
     

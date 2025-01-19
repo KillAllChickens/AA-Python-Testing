@@ -227,3 +227,19 @@ class GlobalConfig:
         self.command_config = self.config.get("command_config", {})
         self.categories = self.command_config.get("categories", {})
         self.commands = self.command_config.get("commands", "")
+
+    def reload_config(self) -> None:
+        """Reload the configuration from the file and update the internal state."""
+        self.config = self._load_config()
+
+        # Update dependent attributes
+        self.username = self.config.get("username", "")
+        self.command_prefix = self.config.get("command_prefix", "")
+        
+        self.auth = self.config.get("auth", {})
+        self.client_id = self.auth.get("client_id", "")
+        self.access_token = self.auth.get("access_token", "")
+        self.refresh_token = self.auth.get("refresh_token", "")
+        self.command_config = self.config.get("command_config", {})
+        self.categories = self.command_config.get("categories", {})
+        self.commands = self.command_config.get("commands", {})

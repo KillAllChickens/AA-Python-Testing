@@ -18,7 +18,7 @@ class WebSocketServer:
     def __init__(self, host: str="127.0.0.1", port: int=8765):
         self.host = host
         self.port = port
-        self.client = None
+        # self.client = None
         self.response_queue = asyncio.Queue()
         self.processable_packets = ["send_message", "end_python", "start_twitch", "load_config"]
         self.stop_event = asyncio.Event()
@@ -36,7 +36,7 @@ class WebSocketServer:
     async def handle_client(self, websocket):
         print("Client Connected")
         self.client = websocket
-        print(self.bot)
+        print(self.client)
         try:
             async for message in websocket:
                 # print(self.client) # Prints <websockets.asyncio.server.ServerConnection object at 0x751459894d70> which is good
