@@ -62,6 +62,7 @@ class WebSocketServer:
             self.client = None
             await websocket.close()
             print("WebSocket connection closed.")
+            self.bot.close()
 
     
     async def send_message(self, message):

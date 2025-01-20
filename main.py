@@ -90,18 +90,20 @@ async def start_bot():
     # load_dummy_cog(bot)
     # await bot.start()
 
-def start_webui():
-    print("Starting Web UI!")
-    global api_thread
-    if not api_thread:
-        api_thread = threading.Thread(target=start_api, daemon=True)
-    api_thread.start()
+# def start_webui():
+#     print("Starting Web UI!")
+#     global api_thread
+#     if not api_thread:
+#         api_thread = threading.Thread(target=start_api, daemon=True)
+#     api_thread.start()
     # await start_api()
 
-def end_webui():
-    print("Stopping Web UI...")
-    if api_thread:
-        api_thread.join(timeout=5)
+def end_processes():
+    bot.close()
+    ...
+    # print("Stopping Web UI...")
+    # if api_thread:
+    #     api_thread.join(timeout=5)
 
 async def token_invalid():
     print("Access token expired or invalid, Authenticating...")
@@ -161,7 +163,7 @@ async def initialize_bot():
 async def main():
 
     await initialize_websocket()
-    start_webui()
+    # start_webui()
     await initialize_bot()
 
     
@@ -203,7 +205,7 @@ async def run_bot():
 if __name__ == "__main__":
     # load_config()
 
-    atexit.register(end_webui)
+    atexit.register(end_processes)
 
     # asyncio.run(main())
 
@@ -211,3 +213,4 @@ if __name__ == "__main__":
     asyncio.set_event_loop(loop)
     loop.create_task(main())
     loop.run_forever()
+
