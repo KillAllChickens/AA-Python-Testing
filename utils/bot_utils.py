@@ -7,7 +7,8 @@ compile_mode: bool = True # Set to "True" BEFORE compiling. Set to false if not 
 
 compile_mode_static_cogs = [
     "commands.fun",
-    "commands.pomodoro"
+    "commands.pomodoro",
+    "commands.mod"
 ]
 
 async def load_cogs(bot):
