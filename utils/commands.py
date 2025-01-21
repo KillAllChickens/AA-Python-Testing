@@ -9,12 +9,12 @@ enabled_commands = config.get_enabled_commands()
 print(enabled_commands)
 # print(config.commands)
 
-def configurable_command(*, name: Optional[str] = None) -> Callable: 
+def configurable_command(*, name: Optional[str] = None, always_on: bool = False) -> Callable: 
     
     name = name or func.__name__
     
     def config_command(func: Callable) -> Optional[Callable]:
-        if name in enabled_commands:
+        if name in enabled_commands or always_on:
             print(f"command '{name}' is enabled!")
             return command(name=name)(func)
         else:
